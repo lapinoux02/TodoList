@@ -1,0 +1,56 @@
+<div class="row" ng-controller="NavbarController">
+    <div class="col-md-12">
+        <nav class="my-navbar">
+            <!-- Home button -->
+            <div
+             ng-class="['my-button', 'col-md-1', 'col-md-offset-2', (getState() === 'Home') ? 'selected' : '']"
+             ng-click="gotoHome()">
+                <span class="glyphicon glyphicon-home"></span>
+                Home
+            </div>
+            
+            <!-- Lists dropdown -->
+            <span ng-class="['my-button', 'col-md-1', (getState() === 'TodoList') ? 'selected' : '']" uib-dropdown>
+                <div
+                 id="dropdown-todo-lists"
+                 uib-dropdown-toggle>
+                    
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    Lists
+                    <span class="caret"></span>
+                </div>
+                <ul class="uib-dropdown-menu" aria-labelledby="dropdown-todo-lists">
+                    <li ng-repeat="todoList in data" ng-click="gotoList(todoList.id)">{{todoList.title}}</li>
+                </ul>
+            </span>
+            
+            <!-- Titre -->
+            <div
+             ng-class="[
+                       'title',
+                       'col-md-4']">
+                {{getTitle()}}
+            </div>
+            
+            <!-- Gérer les listes -->
+            <span ng-class="['my-button', 'col-md-2', (getState() === 'Settings') ? 'selected' : '']" uib-dropdown>
+                <div
+                 id="dropdown-management-lists"
+                 uib-dropdown-toggle>
+                    
+                    <span class="glyphicon glyphicon-cog"></span>
+                    Manage lists
+                    <span class="caret"></span>
+                </div>
+                <ul class="uib-dropdown-menu" aria-labelledby="dropdown-management-lists">
+                    <!-- Sauvegarder les listes -->
+                    <li ng-click="downloadLists()"><span class="glyphicon glyphicon-save-file"></span>Save</li>
+                    <!-- Charger des listes -->
+                    <li ng-click="uploadLists()"><span class="glyphicon glyphicon-open-file"></span>Load</li>
+                    <!-- Charger des listes -->
+                    <li ng-click="gotoSettings()"><span class="glyphicon glyphicon-cog"></span>Settings</li>
+                </ul>
+            </span>
+        </nav>
+    </div>
+</div>

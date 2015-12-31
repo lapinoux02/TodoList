@@ -1,0 +1,11 @@
+.settings-container {
+    padding-top: 50px;
+    margin-top: 0px;
+    background-color: rgba(244,244,244,1);
+    min-height: 1080px;
+}
+
+.settings-apply-button {
+    margin-top: 50px;
+    text-align: center;
+}

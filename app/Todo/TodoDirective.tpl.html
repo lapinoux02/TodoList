@@ -1,0 +1,48 @@
+<div class="todo">
+<div class="row">
+    <!-- element du todo (titre + description) -->
+    <div class="col-md-9">
+        <!-- titre -->
+        <div
+         ng-class="[
+                   'todo-title',
+                   'btn',
+                   data.valid ? 'btn-info' : 'btn-default']"
+         ng-click="toggleDescription()">
+            <span ng-if="!modification">{{data.title}}</span>
+            <input ng-if="modification" ng-model="data.title"></input>
+        </div>
+        <!-- description -->
+        <div
+         class="todo-description transi"
+         ng-if="showDescription">
+            <span ng-if="!modification">{{data.description}}</span>
+            <input ng-if="modification" ng-model="data.description" class="description-input"></input>
+        </div>
+    </div>
+    <!-- boutons de modification / suppression -->
+    <div class="col-md-3">
+        <div
+         ng-class="[
+                   'btn',
+                   'btn-default',
+                   'glyphicon',
+                   'modification-button',
+                   modification ? 'glyphicon-ok' : 'glyphicon-pencil']"
+         ng-click="toggleModification()">
+        </div>
+        <div
+         class="btn btn-default remove-button glyphicon glyphicon-trash"
+         ng-click="delete()">
+        </div>
+        <div
+         ng-click="validateTodo()"
+         ng-class="[
+                   'btn',
+                   'btn-default',
+                   'valid-button']">
+            {{data.valid ? 'Oups...' : 'DONE !'}}
+        </div>
+    </div>
+</div>
+</div>

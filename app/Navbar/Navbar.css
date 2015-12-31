@@ -1,0 +1,57 @@
+/*      ^
+ *     / \
+ *    / | \         . Changer la hauteur de la nav-bar implique changer le line-height associé aux boutons
+ *   /  |  \
+ *  /___.___\
+ */
+
+.my-navbar {
+    background-color: rgba(255,255,255, 1);
+    width: 100%;
+    height: 70px;
+}
+
+.my-navbar .my-button {
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.my-navbar .my-button:hover {
+    background-color: gainsboro;
+    color: white;
+    cursor: pointer;
+}
+
+.my-navbar .my-button.selected {
+    background-color: darkgray;
+    color: white;
+}
+
+.my-navbar .my-button ul {
+    border-radius: 0px;
+    margin-top: 0px;
+    color: black;
+}
+
+.my-navbar .my-button li {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+    font-size: 15;
+}
+
+.my-navbar .my-button li:hover {
+    cursor: pointer;
+    background-color: #EEE;
+}
+
+.my-navbar .title {
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+}

@@ -1,0 +1,102 @@
+.todo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.todo-title {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 35px;
+}
+
+.todo-description {
+    background-color: white;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: -2px;
+    width: 84%;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-align: center;
+}
+
+.transi {
+    overflow: hidden;
+    height: 50px;
+}
+
+.transi.ng-enter {
+  transition:0.15s linear all;
+  height: 0px;
+}
+
+.transi.ng-enter.ng-enter-active {
+  height: 50px;
+}
+
+.transi.ng-leave {
+  transition:0.15s linear all;
+  height: 50px;
+}
+
+.description-input {
+    margin-top: 5px;
+}
+
+.transi.ng-leave.ng-leave-active {
+  height: 0px;
+}
+
+.modification-button, .remove-button, .ok-button, .cancel-button {
+    top: 0;
+}
+
+.valid-button {
+    width: 75px;
+}
+
+.add-todo {
+    margin-top: 70px;
+}
+
+.add-todo-add-button {
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 30%;
+    height: 35px;
+}
+
+.add-todo-form {
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    width: 90%;
+    height: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

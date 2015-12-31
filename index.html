@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/app.css">
+    <link rel="stylesheet" href="app/Todo/TodoDirective.css">
+    <link rel="stylesheet" href="app/Navbar/Navbar.css">
+    <link rel="stylesheet" href="app/TodoList/TodoList.css">
+    <link rel="stylesheet" href="app/Settings/Settings.css">
+	<!-- Libraries -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
+	<script type="text/javascript" src="https://code.angularjs.org/1.4.5/i18n/angular-locale_fr-fr.js"></script>
+	<script type="text/javascript" src="https://code.angularjs.org/1.4.5/angular-animate.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+	<!-- Init and config -->
+	<script type="text/javascript" src="app/app.js"></script>
+	<!-- Services -->
+    <script type="text/javascript" src="app/DataManagement/DataService.js"></script>
+	<!-- Directives -->
+    <script type="text/javascript" src="app/Todo/TodoDirective.js"></script>
+    <script type="text/javascript" src="app/Todo/AddTodoDirective.js"></script>
+	<!-- Controllers -->
+	<script type="text/javascript" src="app/TodoList/TodoListController.js"></script>
+    <script type="text/javascript" src="app/Navbar/NavbarController.js"></script>
+    <script type="text/javascript" src="app/Settings/SettingsController.js"></script>
+</head>
+<body ng-app="TODO">
+    <!-- Navbar -->
+    <div ng-include="'app/Navbar/navbar.tpl.html'"></div>
+    
+    <!-- Body -->
+    <div ui-view></div>
+    
+</body> 
+</html>

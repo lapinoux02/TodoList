@@ -1,0 +1,39 @@
+<div class="add-todo">
+<div class="row">
+    <div class="col-md-9" ng-show="!adding">
+        <button
+         class="btn btn-default add-todo-add-button"
+         ng-click="toggleAdd()">
+            Add
+        </button>
+    </div>
+    <div ng-show="adding">
+        <div class="col-md-9">
+            <form class="form-horizontal add-todo-form">
+                <div class="form-group">
+                    <label for="newTitle" class="col-md-3 control-label">Title :</label>
+                    <div class="col-md-6">
+                        <input ng-model="newTitle" class="form-control" id="newTitle" placeholder="Title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="newDescription" class="col-md-3 control-label">Description :</label>
+                    <div class="col-md-9">
+                        <input ng-model="newDescription" type="textarea" class="form-control" id="newDescription" placeholder="Description">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <button
+             class="btn btn-default ok-button glyphicon glyphicon-ok"
+             ng-click="addNewTodo()">
+            </button>
+            <button
+             class="btn btn-default cancel-button glyphicon glyphicon-remove"
+             ng-click="cancelNewTodo()">
+            </button>
+        </div>
+    </div>
+</div>
+</div>
