@@ -21,6 +21,8 @@
                 </div>
                 <ul class="uib-dropdown-menu" aria-labelledby="dropdown-todo-lists">
                     <li ng-repeat="todoList in data" ng-click="gotoList(todoList.id)">{{todoList.title}}</li>
+                    <hr>
+                    <li ng-click="newTodoList()">New TodoList</li>
                 </ul>
             </span>
             

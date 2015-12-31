@@ -19,7 +19,6 @@ angular.module("TODO")
             scope.addNewTodo = function() {
                 scope.toggleAdd();
                 DataService.addNewTodo($stateParams.todoListId, scope.newTitle, scope.newDescription);
-                console.log(DataService.getData());
                 scope.newTitle = "";
                 scope.newDescription = "";
             }

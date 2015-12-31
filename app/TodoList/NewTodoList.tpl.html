@@ -4,15 +4,16 @@
         <div class="row">
             <form class="form-horizontal add-todo-form">
                 <div class="form-group">
-                    <label for="newBackground" class="col-md-3 control-label">Background URL :</label>
+                    <label for="newBackground" class="col-md-3 control-label">Titre :</label>
                     <div class="col-md-6">
-                        <input ng-model="newBackground" class="form-control" id="newBackground" placeholder="Background URL">
+                        <input ng-model="newTodoListTitle" class="form-control" id="newBackground" placeholder="Titre">
                     </div>
                 </div>
             </form>
         </div>
         <div class="row settings-apply-button">
-            <div class="btn btn-default" ng-click="applyNewSettings()">Apply</div>
+            <div class="btn btn-default" ng-click="">Cancel</div>
+            <div class="btn btn-default" ng-click="createNewTodo()">Apply</div>
         </div>
     </div>
     <div class="col-md-1 grad-right"></div>

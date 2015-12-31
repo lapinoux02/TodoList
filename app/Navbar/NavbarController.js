@@ -14,6 +14,10 @@ angular.module('TODO')
         }
     };
     
+    $scope.newTodoList = function() {
+        $state.go('NewTodoList');
+    };
+    
     $scope.getState = function() {
         return $state.current.name;
     };

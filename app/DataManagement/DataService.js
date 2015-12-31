@@ -3,6 +3,7 @@ angular.module("TODO")
     /*---------------------------*
      *      Private attribute    *
      *---------------------------*/
+    
     var data = [
         {
             title: 'First',
@@ -41,7 +42,8 @@ angular.module("TODO")
     ];
     
     var global = {
-        maxId: 4
+        maxTodoListId: 2,
+        maxTodoId: 4
     }
     
     /*---------------------------*
@@ -87,7 +89,7 @@ angular.module("TODO")
             title: title || "",
             description: description || "",
             valid: valid || false,
-            id: ++global.maxId
+            id: ++global.maxTodoId
         }
     };
     
@@ -95,7 +97,15 @@ angular.module("TODO")
      *      Public method        *
      *---------------------------*/
     var setData = function(newData) {
-        data = newData;
+        /* 
+         * Assign the new data to the data variable without destroying its reference.
+         * That way, the variables using the data don't lose the reference and auto-
+         * update.
+         */
+        data.length = 0;
+        for (var i=0; i<newData.length; ++i) {
+            data.push(newData[i]);
+        }
     };
     
     var getData = function() {
@@ -116,6 +126,15 @@ angular.module("TODO")
         data[indexs.i].list.push(newTodo(newTitle, newDescription));
     };
     
+    var createNewTodoList = function(newTodoListTitle) {
+        data.push({
+            title: newTodoListTitle,
+            list: [],
+            id: ++global.maxTodoListId
+        });
+        return global.maxTodoListId;
+    };
+    
     return {
         // Init data
         setData: setData,
@@ -128,7 +147,8 @@ angular.module("TODO")
         removeTodo: removeTodo,
         
         // Add data
-        addNewTodo: addNewTodo
+        addNewTodo: addNewTodo,
+        createNewTodoList: createNewTodoList
     };
 });
 
