@@ -20,7 +20,7 @@ angular.module("TODO", ["ui.bootstrap", "ngCookies", "ngAnimate", "ui.router"])
     })
     .state("NewTodoList", {
         url: '/newTodoList',
-        templateUrl: 'app/TodoList/newTodoList.tpl.html',
+        templateUrl: 'app/TodoList/NewTodoList.tpl.html',
         controller: 'NewTodoListController'
     })
     .state("Settings", {
