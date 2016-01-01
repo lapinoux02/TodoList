@@ -4,12 +4,13 @@ angular.module("TODO")
      *      Private attribute    *
      *---------------------------*/
     
-    var data = [];
-    
-    var global = {
-        maxTodoListId: 0,
-        maxTodoId: 0
-    }
+    var saveData = {
+        data: [],
+        global: {
+            maxTodoListId: 0,
+            maxTodoId: 0
+        }
+    };
     
     /*---------------------------*
      *      Private method       *
@@ -27,8 +28,8 @@ angular.module("TODO")
      */
     var getIndexs = function(listId, todoId) {
         var indexs = {i: null, j: null};
-        for (var i=0; i<data.length; ++i) {
-            var todoList = data[i];
+        for (var i=0; i<getData().length; ++i) {
+            var todoList = getData()[i];
             if (todoList.id != listId) {
                 continue;
             }
@@ -49,64 +50,86 @@ angular.module("TODO")
         return null;
     };
     
+    var getGlobal = function() {
+        return saveData.global;
+    };
+    
     var newTodo = function(title, description, valid) {
         return {
             title: title || "",
             description: description || "",
             valid: valid || false,
-            id: ++global.maxTodoId
+            id: ++getGlobal().maxTodoId
         }
     };
     
-    /*---------------------------*
-     *      Public method        *
-     *---------------------------*/
     var setData = function(newData) {
         /* 
          * Assign the new data to the data variable without destroying its reference.
          * That way, the variables using the data don't lose the reference and auto-
          * update.
          */
-        data.length = 0;
+        getData().length = 0;
         for (var i=0; i<newData.length; ++i) {
-            data.push(newData[i]);
+            getData().push(newData[i]);
         }
     };
     
+    var setGlobal = function(newGlobal) {
+        for(var element in newGlobal) {
+            saveData.global[element] = newGlobal[element];
+        };
+    };
+    
+    /*---------------------------*
+     *      Public method        *
+     *---------------------------*/
+    
     var getData = function() {
-        return data;
+        return saveData.data;
     };
     
     var getList = function(todoListId) {
-        return data.filter(function(e) {return e.id == todoListId;})[0];
+        return getData().filter(function(e) {return e.id == todoListId;})[0];
     };
     
     var removeTodo = function(listId, todoId) {
         var indexs = getIndexs(listId, todoId);
-        data[indexs.i].list.splice(indexs.j, 1);
+        getData()[indexs.i].list.splice(indexs.j, 1);
     };
     
     var addNewTodo = function(listId, newTitle, newDescription) {
         var indexs = getIndexs(listId, null);
-        data[indexs.i].list.push(newTodo(newTitle, newDescription));
+        getData()[indexs.i].list.push(newTodo(newTitle, newDescription));
     };
     
     var createNewTodoList = function(newTodoListTitle) {
-        data.push({
+        getData().push({
             title: newTodoListTitle,
             list: [],
-            id: ++global.maxTodoListId
+            id: ++getGlobal().maxTodoListId
         });
-        return global.maxTodoListId;
+        return getGlobal().maxTodoListId;
+    };
+    
+    var getSaveData = function() {
+        return saveData;
+    };
+    
+    var setSaveData = function(newSaveData) {
+        console.log(newSaveData);
+        setData(newSaveData.data);
+        setGlobal(newSaveData.global);
     };
     
     return {
         // Init data
-        setData: setData,
+        setSaveData: setSaveData,
         
         // Get data
         getData: getData,
         getList: getList,
+        getSaveData: getSaveData,
         
         // Remove data
         removeTodo: removeTodo,

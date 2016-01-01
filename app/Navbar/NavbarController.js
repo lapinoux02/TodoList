@@ -39,7 +39,7 @@ angular.module('TODO')
         // Création du lien (inutile de le bind au DOM)
         var link = document.createElement('A');
         // Création de l'objet à DL
-        var blob = new Blob([JSON.stringify(DataService.getData())], {type: 'text/plain'});
+        var blob = new Blob([JSON.stringify(DataService.getSaveData())], {type: 'text/plain'});
         // Création de l'URL
         var url = (window.URL || window.webkitURL).createObjectURL(blob);
         // On set les propriétés du lien (nom d'enregistrement et url)
@@ -70,7 +70,7 @@ angular.module('TODO')
                     // On lit le fichier
                     var data = JSON.parse(fileReader.result);
                     // On met à jour la donnée
-                    DataService.setData(data);
+                    DataService.setSaveData(data);
 
                     $state.go('Home');
                 };
