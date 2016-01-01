@@ -4,7 +4,7 @@ angular.module("TODO")
      *      Private attribute    *
      *---------------------------*/
     
-    var saveData = {
+    var saveData = JSON.parse(localStorage.getItem('saveData')) || {
         data: [],
         global: {
             maxTodoListId: 0,
@@ -81,6 +81,10 @@ angular.module("TODO")
         };
     };
     
+    var storeData = function() {
+        localStorage.setItem('saveData', JSON.stringify(saveData));
+    };
+    
     /*---------------------------*
      *      Public method        *
      *---------------------------*/
@@ -101,6 +105,7 @@ angular.module("TODO")
     var addNewTodo = function(listId, newTitle, newDescription) {
         var indexs = getIndexs(listId, null);
         getData()[indexs.i].list.push(newTodo(newTitle, newDescription));
+        storeData();
     };
     
     var createNewTodoList = function(newTodoListTitle) {
@@ -109,6 +114,7 @@ angular.module("TODO")
             list: [],
             id: ++getGlobal().maxTodoListId
         });
+        storeData();
         return getGlobal().maxTodoListId;
     };
     
