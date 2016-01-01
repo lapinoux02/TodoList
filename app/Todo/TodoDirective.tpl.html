@@ -22,7 +22,7 @@
     </div>
     <!-- boutons de modification / suppression -->
     <div class="col-md-3">
-        <div
+        <button
          ng-class="[
                    'btn',
                    'btn-default',
@@ -30,19 +30,19 @@
                    'modification-button',
                    modification ? 'glyphicon-ok' : 'glyphicon-pencil']"
          ng-click="toggleModification()">
-        </div>
-        <div
+        </button>
+        <button
          class="btn btn-default remove-button glyphicon glyphicon-trash"
          ng-click="delete()">
-        </div>
-        <div
+        </button>
+        <button
          ng-click="validateTodo()"
          ng-class="[
                    'btn',
                    'btn-default',
                    'valid-button']">
             {{data.valid ? 'Oups...' : 'DONE !'}}
-        </div>
+        </button>
     </div>
 </div>
 </div>

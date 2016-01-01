@@ -10,7 +10,7 @@
             </div>
             
             <!-- Lists dropdown -->
-            <span ng-class="['my-button', 'col-md-1', (getState() === 'TodoList') ? 'selected' : '']" uib-dropdown>
+            <span ng-class="['my-button', 'col-md-1', (getState() === 'TodoList' || getState() === 'NewTodoList') ? 'selected' : '']" uib-dropdown>
                 <div
                  id="dropdown-todo-lists"
                  uib-dropdown-toggle>
@@ -19,9 +19,9 @@
                     Lists
                     <span class="caret"></span>
                 </div>
-                <ul class="uib-dropdown-menu" aria-labelledby="dropdown-todo-lists">
+                <ul class=" uib-dropdown-menu" aria-labelledby="dropdown-todo-lists">
                     <li ng-repeat="todoList in data" ng-click="gotoList(todoList.id)">{{todoList.title}}</li>
-                    <hr>
+                    <li ng-show="data.length" class="divider"></li>
                     <li ng-click="newTodoList()">New TodoList</li>
                 </ul>
             </span>

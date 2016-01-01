@@ -4,46 +4,11 @@ angular.module("TODO")
      *      Private attribute    *
      *---------------------------*/
     
-    var data = [
-        {
-            title: 'First',
-            list: [
-            {
-                title: 'T11',
-                description: '',
-                valid: true,
-                id: 1
-            },
-            {
-                title: 'T12',
-                description: 'D12',
-                valid: false,
-                id: 2
-            }],
-            id: 1
-        },
-        {
-            title: 'Second',
-            list: [
-            {
-                title: 'T21',
-                description: 'D21',
-                valid: false,
-                id: 3
-            },
-            {
-                title: 'T22',
-                description: 'D22',
-                valid: false,
-                id: 4
-            }],
-            id: 2
-        }
-    ];
+    var data = [];
     
     var global = {
-        maxTodoListId: 2,
-        maxTodoId: 4
+        maxTodoListId: 0,
+        maxTodoId: 0
     }
     
     /*---------------------------*

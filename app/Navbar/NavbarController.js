@@ -8,7 +8,8 @@ angular.module('TODO')
             case 'Home':
                 return 'Home sweet home...';
             case 'TodoList':
-                return DataService.getList($stateParams.todoListId).title;
+                if (DataService.getList($stateParams.todoListId))
+                    return DataService.getList($stateParams.todoListId).title;
             case 'Settings':
                 return 'Settings';
         }

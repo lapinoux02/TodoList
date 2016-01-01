@@ -47,6 +47,16 @@
     background-color: #EEE;
 }
 
+.my-navbar .my-button .divider {
+    height: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0px;
+    padding: 0px;
+    width: 100%;
+    border-top: 1px solid #E5E5E5;
+}
+
 .my-navbar .title {
     height: 100%;
     line-height: 70px;
