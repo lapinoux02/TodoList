@@ -10,13 +10,13 @@ angular.module("TODO", ["ui.bootstrap", "ngCookies", "ngAnimate", "ui.router"])
     $urlRouterProvider.otherwise("/home");
     $stateProvider
     .state("Home", {
-      url: "/home",
-      templateUrl: "app/Home/Home.tpl.html"
+        url: "/home",
+        templateUrl: "app/Home/Home.tpl.html"
     })
     .state("TodoList", {
-      url: "/todoList/:todoListId",
-      templateUrl: "app/TodoList/TodoList.tpl.html",
-      controller: "TodoListController"
+        url: "/todoList/:todoListId",
+        templateUrl: "app/TodoList/TodoList.tpl.html",
+        controller: "TodoListController"
     })
     .state("NewTodoList", {
         url: '/newTodoList',

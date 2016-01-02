@@ -1,5 +1,5 @@
 angular.module('TODO')
-.controller('NavbarController', function($scope, $timeout, $state, $stateParams, DataService) {
+.controller('NavbarController', function($scope, $timeout, $state, $stateParams, DataService, SettingsService) {
     
     $scope.data = DataService.getData();
     
@@ -39,7 +39,11 @@ angular.module('TODO')
         // Création du lien (inutile de le bind au DOM)
         var link = document.createElement('A');
         // Création de l'objet à DL
-        var blob = new Blob([JSON.stringify(DataService.getSaveData())], {type: 'text/plain'});
+        var toDl = JSON.stringify({
+            data: DataService.getSaveData(),
+            settings: SettingsService.getSettings()
+        });
+        var blob = new Blob([toDl], {type: 'text/plain'});
         // Création de l'URL
         var url = (window.URL || window.webkitURL).createObjectURL(blob);
         // On set les propriétés du lien (nom d'enregistrement et url)
@@ -68,9 +72,11 @@ angular.module('TODO')
                 // Lors du chargement du fichier
                 fileReader.onload = function() {
                     // On lit le fichier
-                    var data = JSON.parse(fileReader.result);
-                    // On met à jour la donnée
-                    DataService.setSaveData(data);
+                    var uploadedData = JSON.parse(fileReader.result);
+                    // On met à jour les données
+                    console.log(uploadedData);
+                    DataService.setSaveData(uploadedData.data);
+                    SettingsService.setSettings(uploadedData.settings);
 
                     $state.go('Home');
                 };
