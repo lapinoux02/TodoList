@@ -10,10 +10,6 @@ angular.module("TODO")
             scope.showDescription = false;
             scope.modification = false;
             
-            scope.toto = function() {
-                console.log('do smthg');
-            };
-            
             scope.toggleDescription = function() {
                 if (scope.data.valid) {
                     return;
@@ -37,6 +33,7 @@ angular.module("TODO")
                     scope.showDescription = true;
                 } else {
                     scope.showDescription = false;
+                    DataService.storeData();
                 }
             };
             
@@ -50,6 +47,7 @@ angular.module("TODO")
                 scope.showDescription = false;
                 scope.modification = false;
                 scope.data.valid = !scope.data.valid;
+                DataService.storeData();
             }
         }
     };

@@ -39,7 +39,9 @@
     height: 30px;
     line-height: 30px;
     padding-left: 20px;
+    padding-right: 20px;
     font-size: 15;
+    white-space: pre;
 }
 
 .my-navbar .my-button li:hover {
@@ -64,4 +66,5 @@
     font-size: 30px;
     font-family: sans-serif;
     font-weight: bold;
+    overflow: hidden;
 }

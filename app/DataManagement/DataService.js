@@ -81,10 +81,6 @@ angular.module("TODO")
         };
     };
     
-    var storeData = function() {
-        localStorage.setItem('saveData', JSON.stringify(saveData));
-    };
-    
     /*---------------------------*
      *      Public method        *
      *---------------------------*/
@@ -100,6 +96,7 @@ angular.module("TODO")
     var removeTodo = function(listId, todoId) {
         var indexs = getIndexs(listId, todoId);
         getData()[indexs.i].list.splice(indexs.j, 1);
+        storeData();
     };
     
     var addNewTodo = function(listId, newTitle, newDescription) {
@@ -127,6 +124,10 @@ angular.module("TODO")
         setGlobal(newSaveData.global);
     };
     
+    var storeData = function() {
+        localStorage.setItem('saveData', JSON.stringify(saveData));
+    };
+    
     return {
         // Init data
         setSaveData: setSaveData,
@@ -141,7 +142,10 @@ angular.module("TODO")
         
         // Add data
         addNewTodo: addNewTodo,
-        createNewTodoList: createNewTodoList
+        createNewTodoList: createNewTodoList,
+        
+        // Sauvegarde de donnée
+        storeData: storeData
     };
 });
 
