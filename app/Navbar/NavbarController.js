@@ -74,7 +74,6 @@ angular.module('TODO')
                     // On lit le fichier
                     var uploadedData = JSON.parse(fileReader.result);
                     // On met à jour les données
-                    console.log(uploadedData);
                     DataService.setSaveData(uploadedData.data);
                     SettingsService.setSettings(uploadedData.settings);
 

@@ -122,6 +122,7 @@ angular.module("TODO")
     var setSaveData = function(newSaveData) {
         setData(newSaveData.data);
         setGlobal(newSaveData.global);
+        storeData();
     };
     
     var storeData = function() {
