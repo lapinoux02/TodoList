@@ -68,3 +68,16 @@
     font-weight: bold;
     overflow: hidden;
 }
+
+.my-navbar .title .delete-todo-list {
+    font-size: 75%;
+    visibility: hidden;
+}
+
+.my-navbar .title:hover .delete-todo-list {
+    visibility: visible;
+}
+
+.my-navbar .title:hover .delete-todo-list:hover {
+    cursor: pointer;
+}

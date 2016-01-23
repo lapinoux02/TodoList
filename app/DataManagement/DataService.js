@@ -93,6 +93,11 @@ angular.module("TODO")
         return getData().filter(function(e) {return e.id == todoListId;})[0];
     };
     
+    var deleteTodoList = function(todoListId) {
+        saveData.data.splice(getIndexs(parseInt(todoListId), null).i, 1);
+        storeData();
+    };
+    
     var removeTodo = function(listId, todoId) {
         var indexs = getIndexs(listId, todoId);
         getData()[indexs.i].list.splice(indexs.j, 1);
@@ -139,13 +144,14 @@ angular.module("TODO")
         getSaveData: getSaveData,
         
         // Remove data
+        deleteTodoList: deleteTodoList,
         removeTodo: removeTodo,
         
         // Add data
         addNewTodo: addNewTodo,
         createNewTodoList: createNewTodoList,
         
-        // Sauvegarde de donnée
+        // Sauvegarde de donnée dans le localStorage
         storeData: storeData
     };
 });

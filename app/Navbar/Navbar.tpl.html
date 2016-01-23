@@ -32,6 +32,7 @@
                        'title',
                        'col-md-4']">
                 {{getTitle()}}
+                <span ng-show="showDeleteTodoList()" ng-click="deleteTodoList()" class="delete-todo-list glyphicon glyphicon-trash"></span>
             </div>
             
             <!-- Gérer les listes -->

@@ -19,6 +19,11 @@ angular.module('TODO')
         $state.go('NewTodoList');
     };
     
+    $scope.deleteTodoList = function() {
+        $state.go('Home');
+        DataService.deleteTodoList($stateParams.todoListId);
+    };
+    
     $scope.getState = function() {
         return $state.current.name;
     };
@@ -33,6 +38,10 @@ angular.module('TODO')
     
     $scope.gotoSettings = function() {
         $state.go('Settings');
+    };
+    
+    $scope.showDeleteTodoList = function() {
+        return $state.current.name === 'TodoList';
     };
     
     $scope.downloadLists = function() {
