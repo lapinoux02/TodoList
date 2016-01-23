@@ -3,4 +3,10 @@ angular.module("TODO")
     $scope.applyNewSettings = function() {
         SettingsService.setBackground($scope.newBackground);
     };
+    
+    $scope.resetSettings = function() {
+        if (confirm('Souhaitez-vous vraiment Reset tous vos paramètres personalisés ?')) {
+            SettingsService.resetBackground();
+        }
+    };
 });

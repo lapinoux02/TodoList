@@ -44,6 +44,13 @@ angular.module('TODO')
         storeSettings();
     };
     
+    var resetBackground = function() {
+        var defaultBackground = 'http://7-themes.com/data_images/out/37/6896002-calm-wallpaper.jpg';
+        document.querySelector('body').style.backgroundImage = 'url("' + defaultBackground + '")';
+        settings.background = defaultBackground;
+        storeSettings();
+    };
+    
     var setSettings = function(newSettings) {
         settings = newSettings;
         storeSettings();
@@ -62,6 +69,7 @@ angular.module('TODO')
     return {
         getSettings: getSettings,
         setSettings: setSettings,
-        setBackground: setBackground
+        setBackground: setBackground,
+        resetBackground: resetBackground
     };
 });
