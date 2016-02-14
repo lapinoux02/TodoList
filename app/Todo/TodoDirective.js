@@ -38,9 +38,7 @@ angular.module("TODO")
             };
             
             scope.delete = function() {
-                if(confirm('Souhaitez vous vraiment supprimer cet élément ?')) {
-                    DataService.removeTodo($stateParams.todoListId, scope.data.id);
-                }
+                DataService.removeTodo($stateParams.todoListId, scope.data.id);
             };
             
             scope.validateTodo = function() {
